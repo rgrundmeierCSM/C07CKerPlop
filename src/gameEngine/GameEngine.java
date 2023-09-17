@@ -139,6 +139,20 @@ public class GameEngine {
 		// reset player statistics, starting location determined
 		// by level engine
 		player.resetLevel(levelData.getPlayerStartLoc());
+		print_legend();
+	}
+
+	private void print_legend() {
+		System.out.println(gameBoard.length);
+		for(int i = 0; i < gameBoard.length; i++)
+		{
+			if(gameBoard[i]!=null)
+			{
+				System.out.println(gameBoard[i].toString());
+			}
+				
+		}
+		
 	}
 
 	/**

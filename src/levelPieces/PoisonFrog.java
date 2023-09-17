@@ -8,13 +8,10 @@ import gameEngine.Moveable;
 import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 
-public class PoisonFrog extends GamePiece implements Moveable {
+public class PoisonFrog extends GamePiece implements Moveable, Drawable {
 
-	public PoisonFrog(char symbol, String label, int location) {
-		super(symbol, label, location);
-		
-		
-		
+	public PoisonFrog(int location) {
+		super('F', "PoisonFrog (can kill you)", location);
 		
 	}
 	/**
@@ -56,6 +53,10 @@ public class PoisonFrog extends GamePiece implements Moveable {
 		gameBoard[this.getLocation()] = this;
 		
 		
+	}
+	@Override
+	public String toString() {
+		return super.toString();
 	}
 
 }
