@@ -77,15 +77,14 @@ public abstract class GamePiece implements Drawable {
 	}
 	
 	
-	public int getValidSpace(int currentSpace, boolean direction, Drawable[] board)
+	public int getValidSpace(int currentSpace, boolean direction, Drawable[] board, int playerLocation)
 	{
 		int i;
 		if (direction)
 			i = 1;
 		else
 			i = -1;
-		
-		while(board[currentSpace]!=null)
+		while((board[currentSpace]!=null) || (currentSpace == playerLocation))
 		{
 			if((currentSpace == GameEngine.BOARD_SIZE) && direction)
 				i = -1;

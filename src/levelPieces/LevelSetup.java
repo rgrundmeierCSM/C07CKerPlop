@@ -4,16 +4,13 @@
 package levelPieces;
 import gameEngine.Drawable;
 import gameEngine.Moveable;
-import gameEngine.Player;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 public class LevelSetup {
 
 	protected Drawable[] board;
 	private final int BOARD_SIZE = 21;
-	private final int PLAYER_START_LOCATION = 10;
+	private final int PLAYER_START_LOCATION = 20;
 	
 	public LevelSetup() {
 		// TODO Auto-generated constructor stub
@@ -34,19 +31,19 @@ public class LevelSetup {
 				{
 					switch(i)
 					{
-					case 2:
+					case 1:
 						board[i] = new Assassin(i);
 						break;
-					case 4:
+					case 14:
 						board[i] = new Platform(i);
 						break;
-					case 16:
+					case 11:
 						board[i] = new MysteriousClock(i,board);
 						break;
-					case 20:
+					case 12:
 						board[i] = new PoisonFrog(i);
 						break;
-					case 12:
+					case 6:
 						board[i] = new Treasure(i);
 						break;
 					default:
@@ -56,6 +53,36 @@ public class LevelSetup {
 				}
 				break;
 			case 2:
+				for(int i = 0; i < BOARD_SIZE; i++)
+				{
+					switch(i)
+					{
+					case 1:
+						board[i] = new Assassin(i);
+						break;
+					case 17:
+						board[i] = new GoldenSnich(i);
+						break;
+					case 14:
+						board[i] = new Platform(i);
+						break;
+					case 11:
+						board[i] = new MysteriousClock(i,board);
+						break;
+					case 12:
+						board[i] = new PoisonFrog(i);
+						break;
+					case 6:
+						board[i] = new Treasure(i);
+						break;
+					case 7:
+						board[i] = new Guard(i);
+						break;
+					default:
+						board[i] = null;
+						break;
+					}
+				}
 				break;
 			default:
 				System.out.println("Unknown Level: " + levelNum);
@@ -68,7 +95,6 @@ public class LevelSetup {
 	 * @return The final array that will be used to store the gamestate
 	 */
 	public Drawable [] getBoard() {
-		
 		
 		return board;
 	}
@@ -86,7 +112,7 @@ public class LevelSetup {
 		return movablePieces;
 	}
 	/**
-	 * This funciton is called to build the array of pieces that can interact with the player. 
+	 * This function is called to build the array of pieces that can interact with the player. 
 	 * @return The array of interacting pieces. 
 	 */
 	public ArrayList<GamePiece> getInteractingPieces() {
