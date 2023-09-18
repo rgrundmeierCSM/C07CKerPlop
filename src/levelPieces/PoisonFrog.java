@@ -8,13 +8,11 @@ import gameEngine.Moveable;
 import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 
-public class PoisonFrog extends GamePiece implements Moveable {
+public class PoisonFrog extends GamePiece implements Moveable, Drawable {
 
-	public PoisonFrog(char symbol, String label, int location) {
-		super(symbol, label, location);
-		
-		
-		
+	private Drawable gamePieceOnTopOf = null;
+	public PoisonFrog(int location) {
+		super('F', "PoisonFrog (can kill you)", location);
 		
 	}
 	/**
@@ -28,7 +26,7 @@ public class PoisonFrog extends GamePiece implements Moveable {
 		if (getLocation() == playerLocation) {
 			return InteractionResult.KILL ;
 		}
-		return null;
+		return InteractionResult.NONE;
 	}
 	/**
 	 * @param gameBoard the array of all the drawable pieces
@@ -38,27 +36,26 @@ public class PoisonFrog extends GamePiece implements Moveable {
 	 */
 	@Override
 	public void move(Drawable[] gameBoard, int playerLocation) {
-		// Deleting our previous location in the board
-		gameBoard[this.getLocation()] = null;
-		
-		// Checking to see whether the player is to the left of the PoisonFrog
-		if (playerLocation < this.getLocation()) {
-			// If the PoisonFrog is at the edge/1 from the edge
-			if (this.getLocation() > 1 ) {
-				this.setLocation(this.getLocation() - 2);
-			}
-		}
+
+
+
+		int previousLocation = this.getLocation();
+		// Checking to see whether the player is to the left of right of the PoisonFrog
+		if(this.getLocation() < playerLocation)
+			this.setLocation(this.getValidSpace(this.getLocation() + 2,true,gameBoard,playerLocation));
+		else
+			this.setLocation(this.getValidSpace(this.getLocation() - 2,false,gameBoard,playerLocation));
+
 		// This gets called when the player is to the right. 
-		else {
-			//Checking PoisonFrog location relative to the right edge
-			if (this.getLocation() < 19) {
-				this.setLocation(this.getLocation() + 2);
-			}
-		}
 		//Update the game board with our new position. 
+		Drawable tempSpace = gamePieceOnTopOf;
+		gamePieceOnTopOf = gameBoard[this.getLocation()];
 		gameBoard[this.getLocation()] = this;
-		
-		
+		gameBoard[previousLocation] = tempSpace;
+	}
+	@Override
+	public String toString() {
+		return super.toString();
 	}
 
 }

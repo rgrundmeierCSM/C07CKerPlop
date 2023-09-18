@@ -41,6 +41,7 @@ public class GameEngine {
 	private ArrayList<GamePiece> interactingPieces;
 	// Player keeps track of player status and controls player movement/location
 	private Player player;
+	private static boolean skipMove;
 
 	/**
 	 * Driver for the game. Creates game and plays it.
@@ -113,10 +114,12 @@ public class GameEngine {
 
 			// prompt and update the player's location
 			player.doMove(gameBoard);
-
 			interaction(); // process interactions after player moves
-
-			movePieces(); // then move the pieces
+			
+			if(!skipMove)
+				movePieces(); // then move the pieces
+			else
+				skipMove = false;
 		}
 	}
 
@@ -139,6 +142,20 @@ public class GameEngine {
 		// reset player statistics, starting location determined
 		// by level engine
 		player.resetLevel(levelData.getPlayerStartLoc());
+		print_legend();
+	}
+
+	private void print_legend() {
+		System.out.println(gameBoard.length);
+		for(int i = 0; i < gameBoard.length; i++)
+		{
+			if(gameBoard[i]!=null)
+			{
+				System.out.println(gameBoard[i].toString());
+			}
+				
+		}
+		
 	}
 
 	/**
@@ -229,6 +246,11 @@ public class GameEngine {
 			return true;
 		}
 		return false;
+	}
+	
+	public static void setSkipTurn(boolean skipMove)
+	{
+		GameEngine.skipMove = skipMove;
 	}
 
 }
