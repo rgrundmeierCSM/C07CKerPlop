@@ -38,7 +38,10 @@ public class PoisonFrog extends GamePiece implements Moveable {
 	 */
 	@Override
 	public void move(Drawable[] gameBoard, int playerLocation) {
-		// Checking to see whether the player is to the left of right of the PoisonFrog
+		// Deleting our previous location in the board
+		gameBoard[this.getLocation()] = null;
+		
+		// Checking to see whether the player is to the left of the PoisonFrog
 		if (playerLocation < this.getLocation()) {
 			// If the PoisonFrog is at the edge/1 from the edge
 			if (this.getLocation() > 1 ) {

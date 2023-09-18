@@ -167,7 +167,8 @@ public class GameEngine {
 	 */
 	public void movePieces() {
 		for (Moveable piece : movingPieces) {
-			piece.move(gameBoard, player.getLocation());
+			if (piece != null)
+				piece.move(gameBoard, player.getLocation());
 		}
 	}
 
@@ -180,6 +181,7 @@ public class GameEngine {
 	 */
 	public void interaction() {
 		for (GamePiece piece : interactingPieces) {
+			if (piece != null) {
 			InteractionResult result = piece.interact(gameBoard, player.getLocation());
 			if (result == InteractionResult.GET_POINT) {
 				player.addPoint();
@@ -205,6 +207,7 @@ public class GameEngine {
 				System.out.println("\nGood news, you have won an advance!\n");
 				// can only advance once
 				break;
+			}
 			}
 		}
 	}
