@@ -5,6 +5,7 @@
  */
 package levelPieces;
 import gameEngine.Moveable;
+import gameEngine.Player;
 import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 
@@ -25,7 +26,7 @@ public class PoisonFrog extends GamePiece implements Moveable, Drawable {
 		if (getLocation() == playerLocation) {
 			return InteractionResult.KILL ;
 		}
-		return null;
+		return InteractionResult.NONE;
 	}
 	/**
 	 * @param gameBoard the array of all the drawable pieces
@@ -35,11 +36,14 @@ public class PoisonFrog extends GamePiece implements Moveable, Drawable {
 	 */
 	@Override
 	public void move(Drawable[] gameBoard, int playerLocation) {
+		int previousLocation = this.getLocation();
 		// Checking to see whether the player is to the left of right of the PoisonFrog
 		if (playerLocation < this.getLocation()) {
 			// If the PoisonFrog is at the edge/1 from the edge
 			if (this.getLocation() > 1 ) {
 				this.setLocation(this.getLocation() - 2);
+				if(gameBoard[this.getLocation()]!=null && !(gameBoard[this.getLocation()] instanceof Player))
+					this.setLocation(this.getLocation()-1);
 			}
 		}
 		// This gets called when the player is to the right. 
@@ -47,10 +51,13 @@ public class PoisonFrog extends GamePiece implements Moveable, Drawable {
 			//Checking PoisonFrog location relative to the right edge
 			if (this.getLocation() < 19) {
 				this.setLocation(this.getLocation() + 2);
+				if(gameBoard[this.getLocation()]!=null && !(gameBoard[this.getLocation()] instanceof Player))
+					this.setLocation(this.getLocation()+1);
 			}
 		}
 		//Update the game board with our new position. 
 		gameBoard[this.getLocation()] = this;
+		gameBoard[previousLocation] = null;
 		
 		
 	}

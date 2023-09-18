@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 public class LevelSetup {
 
-	private Drawable[] board;
+	protected Drawable[] board;
 	private final int BOARD_SIZE = 21;
 	private final int PLAYER_START_LOCATION = 10;
 	
@@ -41,10 +41,13 @@ public class LevelSetup {
 						board[i] = new Platform(i);
 						break;
 					case 16:
-						board[i] = new MysteriousClock(i);
+						board[i] = new MysteriousClock(i,board);
 						break;
 					case 20:
 						board[i] = new PoisonFrog(i);
+						break;
+					case 12:
+						board[i] = new Treasure(i);
 						break;
 					default:
 						board[i] = null;
@@ -90,7 +93,12 @@ public class LevelSetup {
 		ArrayList<GamePiece> interactingPieces = new ArrayList<GamePiece>();
 		for(int i = 0; i < board.length; i++)
 		{
-			if(board[i] instanceof GamePiece)
+			if((board[i] instanceof GamePiece) && (board[i] instanceof Moveable))
+				interactingPieces.add((GamePiece)board[i]);		
+		}
+		for(int i = 0; i < board.length; i++)
+		{
+			if((board[i] instanceof GamePiece) && !(board[i] instanceof Moveable))
 				interactingPieces.add((GamePiece)board[i]);		
 		}
 		return interactingPieces;

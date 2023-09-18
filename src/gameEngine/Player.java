@@ -117,6 +117,7 @@ public class Player implements Drawable {
 	 * @param gameBoard Current game board
 	 */
 	public void doMove(Drawable[] gameBoard) {
+		
 		// ensure the player moves each turn
 		boolean moved = false;
 		while (!moved) {
