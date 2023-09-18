@@ -1,6 +1,13 @@
 package levelPieces;
 
 import gameEngine.Drawable;
+
+/*
+ * @author Clark Howard
+ * @author Ryan Grundmeier
+ * 
+ * Implements the move and interaction methods for the Assasin piece. 
+ */
 import gameEngine.InteractionResult;
 import gameEngine.Moveable;
 
@@ -9,13 +16,13 @@ public class Assassin extends GamePiece implements Moveable, Drawable
 	private Drawable gamePieceOnTopOf = null;
 	public Assassin(int location) {
 		super('A', "Assassin (can kill you)", location);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
 	public void move(Drawable[] gameBoard, int playerLocation) {
 		int previousLocation = this.getLocation();
-		// Checking to see whether the player is to the left of right of the PoisonFrog
+		// Checking to see whether the player is to the left or right of the Assasin. 
 		if(this.getLocation() < playerLocation)
 			this.setLocation(this.getValidSpace(this.getLocation() + 1,true,gameBoard, playerLocation));
 		else

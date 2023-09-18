@@ -49,6 +49,9 @@ public class LevelSetup {
 					case 14:
 						board[i] = new Platform(i);
 						break;
+					case 15:
+						board[i] = new Treasure(i);
+						break;
 					case 11:
 						board[i] = new MysteriousClock(i,board);
 						break;
@@ -73,7 +76,7 @@ public class LevelSetup {
 						board[i] = new Assassin(i);
 						break;
 					case 17:
-						board[i] = new GoldenSnich(i);
+						board[i] = new GoldenSnitch(i);
 						break;
 					case 14:
 						board[i] = new Platform(i);

@@ -7,13 +7,15 @@ public class Treasure extends GamePiece implements Drawable {
 
 	public Treasure(int location) {
 		super('T', "Treasure (what we are after)", location);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
 	public InteractionResult interact(Drawable[] gameBoard, int playerLocation) {
-		// TODO Auto-generated method stub
-		return this.getLocation()==playerLocation ? InteractionResult.ADVANCE : InteractionResult.NONE;
+		
+		if (this.getLocation() == playerLocation)
+			gameBoard[this.getLocation()] = null;
+		return this.getLocation()==playerLocation ? InteractionResult.GET_POINT : InteractionResult.NONE;
 	}
 	
 	public String toString()

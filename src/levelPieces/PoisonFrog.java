@@ -12,7 +12,7 @@ public class PoisonFrog extends GamePiece implements Moveable, Drawable {
 
 	private Drawable gamePieceOnTopOf = null;
 	public PoisonFrog(int location) {
-		super('F', "PoisonFrog (can kill you)", location);
+		super('F', "PoisonFrog (can damage you)", location);
 		
 	}
 	/**
@@ -24,7 +24,7 @@ public class PoisonFrog extends GamePiece implements Moveable, Drawable {
 	@Override
 	public InteractionResult interact(Drawable[] gameBoard, int playerLocation) {
 		if (getLocation() == playerLocation) {
-			return InteractionResult.KILL ;
+			return InteractionResult.HIT ;
 		}
 		return InteractionResult.NONE;
 	}
