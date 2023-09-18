@@ -8,9 +8,15 @@ import gameEngine.Drawable;
 import gameEngine.Moveable;
 import java.util.ArrayList;
 public class LevelSetup {
-
+	static int currentLevel = 0 ;  //
+	static Drawable[] boardList = new Drawable[21];
+	
+	
+	
 	public LevelSetup() {
-		// TODO Auto-generated constructor stub
+		
+		
+		
 	}
 	/**
 	 * 
@@ -18,17 +24,26 @@ public class LevelSetup {
 	 * @apiNote
 	 * 	This function is called to setup a level whenever the game starts or a new level is needed. 
 	 */
-	public void createLevel(int levelNum) {
+	static public void createLevel(int levelNum) {
+		currentLevel = levelNum;
+		
 		
 	}
 	/**
 	 * This function provides the working gameBoard array that will be used to run the game. 
 	 * @return The final array that will be used to store the gamestate
 	 */
-	public Drawable [] getBoard() {
+	static public Drawable [] getBoard() {
+		if (currentLevel == 1 || currentLevel == 2) {
+			boardList[0] = new PoisonFrog ('F', "Frog", 0);
+			boardList[20] = new PoisonFrog ('F', "Frog", 0);
+			
+		}
+		
+		return boardList;
 		
 		
-		return null;
+		
 	}
 	/**
 	 * This function is called to build the array of pieces that have the capability of moving. 
@@ -54,4 +69,20 @@ public class LevelSetup {
 		
 		return 0;
 	}
-}
+	public static void main(String[] args) {
+		
+		createLevel(1);
+		getBoard();
+		System.out.println(boardList[0]);
+		System.out.println(boardList[1]);
+		System.out.println(boardList[20]);
+		
+		
+		
+	}
+	
+	
+	}
+
+
+
