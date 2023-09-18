@@ -8,9 +8,11 @@ import gameEngine.Drawable;
 import gameEngine.Moveable;
 import java.util.ArrayList;
 public class LevelSetup {
-	static int currentLevel = 0 ;  //
-	static Drawable[] boardList = new Drawable[21];
+	static int currentLevel = 0 ;  // stores the input for the current level, used in the hardcoding for the level loadouts. 
 	
+	static Drawable[] boardList; // array to contain the information 
+	
+	static ArrayList<Moveable> movingPiecesList; // array list to contain the list of all of the pieces that can move in a level. 
 	
 	
 	public LevelSetup() {
@@ -34,10 +36,21 @@ public class LevelSetup {
 	 * @return The final array that will be used to store the gamestate
 	 */
 	static public Drawable [] getBoard() {
-		if (currentLevel == 1 || currentLevel == 2) {
+		// clears out any information previously stored in the list
+		boardList = new Drawable[21];
+		// Uses a hard coded method to check which level is being loaded. Only have to assign the non empty elements, because currently array contains 21 null entries.
+		// When adding elements, the 3rd value of the constructor must match the array index that it is being assigned to. 
+		if (currentLevel == 1 ) {
+			
 			boardList[0] = new PoisonFrog ('F', "Frog", 0);
 			boardList[20] = new PoisonFrog ('F', "Frog", 0);
 			
+		}
+		
+		else if (currentLevel == 2) {
+			boardList[2] = new PoisonFrog ('F', "Frog", 2); 
+			boardList[3] = new PoisonFrog ('F', "Frog", 3);
+					
 		}
 		
 		return boardList;
@@ -49,7 +62,26 @@ public class LevelSetup {
 	 * This function is called to build the array of pieces that have the capability of moving. 
 	 * @return The array of moving pieces
 	 */
-	public ArrayList<Moveable> getMovingPieces() {
+	static public ArrayList<Moveable> getMovingPieces() {
+		//clear out/initialize the array list. 
+		movingPiecesList = new ArrayList<Moveable>();
+		// hard coded way to store the level information for the levels. 
+		// Create an object temp that stores the information for typecasting 
+		Moveable temp;
+		if (currentLevel == 1) {
+			// Typecast the object from the Drawable array and add it to the ArrayList of moveables. 
+			 
+			movingPiecesList.add(temp = (Moveable) boardList[0]);
+			
+			movingPiecesList.add(temp = (Moveable) boardList[20]);
+		}
+		
+		if (currentLevel == 2) {
+			movingPiecesList.add(temp = (Moveable) boardList[2]);
+			movingPiecesList.add(temp = (Moveable) boardList[3]);
+		}
+		
+		
 		
 		return null;
 	}
@@ -73,9 +105,11 @@ public class LevelSetup {
 		
 		createLevel(1);
 		getBoard();
-		System.out.println(boardList[0]);
-		System.out.println(boardList[1]);
-		System.out.println(boardList[20]);
+		getMovingPieces();
+		
+		System.out.println(movingPieciesList);
+		
+		
 		
 		
 		

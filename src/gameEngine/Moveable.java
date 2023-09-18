@@ -8,7 +8,7 @@ package gameEngine;
  * 
  */
 //public interface Moveable extends Drawable{
-public interface Moveable {
+public interface Moveable extends Drawable{
 	
 	/**
 	 * move takes the game board and the player's location and 
