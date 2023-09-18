@@ -1,5 +1,7 @@
 /**
+ * Class LevelSetup
  * @author Ryan Grundmeier
+ * 
  */
 package levelPieces;
 import gameEngine.Drawable;
@@ -37,7 +39,7 @@ public class LevelSetup {
 		return null;
 	}
 	/**
-	 * This funciton is called to build the array of pieces that can interact with the player. 
+	 * This function is called to build the array of pieces that can interact with the player. 
 	 * @return The array of interacting pieces. 
 	 */
 	public ArrayList<GamePiece> getInteractingPieces() {
