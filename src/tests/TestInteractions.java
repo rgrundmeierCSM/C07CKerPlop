@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import gameEngine.Drawable;
 
-public class TestInteractions {
+public class TestInteractions {	
 	@Test
 	public void testAssassin() {
 		assertEquals(1,1);
