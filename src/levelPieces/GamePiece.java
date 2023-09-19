@@ -76,7 +76,15 @@ public abstract class GamePiece implements Drawable {
 		return symbol + " - " + label ; 
 	}
 	
-	
+	/**
+	 * Based on the current location it gets the first valid location starting on the space of 
+	 * the piece and going in the direction the piece was going and returns that value
+	 * @param currentSpace starting space of the piece
+	 * @param direction True for left to right and False for right to left
+	 * @param board list of Drawables that consist of the other pieces on the board
+	 * @param playerLocation location of the player
+	 * @return the new valid location that piece can be on
+	 */
 	public int getValidSpace(int currentSpace, boolean direction, Drawable[] board, int playerLocation)
 	{
 		int i;

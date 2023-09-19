@@ -6,19 +6,25 @@ import gameEngine.Drawable;
  * @author Clark Howard
  * @author Ryan Grundmeier
  * 
- * Implements the move and interaction methods for the Assasin piece. 
+ * Implements the move and interaction methods for the Assassin piece. 
  */
 import gameEngine.InteractionResult;
 import gameEngine.Moveable;
 
 public class Assassin extends GamePiece implements Moveable
-{
-	private Drawable gamePieceOnTopOf = null;
+{	
+	/**
+	 * Default Constructor
+	 * @param location the starting location of the Assassin on the board
+	 */
 	public Assassin(int location) {
 		super('A', "Assassin (can kill you)", location);
 		
 	}
 
+	/**
+	 * Moves towards the player one space at a time jumping over anything in the way
+	 */
 	@Override
 	public void move(Drawable[] gameBoard, int playerLocation) {
 		int previousLocation = this.getLocation();
@@ -27,13 +33,14 @@ public class Assassin extends GamePiece implements Moveable
 			this.setLocation(this.getValidSpace(this.getLocation() + 1,true,gameBoard, playerLocation));
 		else
 			this.setLocation(this.getValidSpace(this.getLocation() - 1,false,gameBoard, playerLocation));
-		
-		Drawable tempSpace = gamePieceOnTopOf;
-		gamePieceOnTopOf = gameBoard[this.getLocation()];
+
 		gameBoard[this.getLocation()] = this;
-		gameBoard[previousLocation] = tempSpace;
+		gameBoard[previousLocation] = null;
 	}
 
+	/**
+	 * If the Assassin is next to the player the assassin will kill the player
+	 */
 	@Override
 	public InteractionResult interact(Drawable[] gameBoard, int playerLocation) {
 		if(Math.abs(this.getLocation() - playerLocation) ==1)
@@ -45,6 +52,8 @@ public class Assassin extends GamePiece implements Moveable
 		}
 		return InteractionResult.NONE;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return super.toString();

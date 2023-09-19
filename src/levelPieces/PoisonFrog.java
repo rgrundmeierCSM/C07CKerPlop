@@ -8,9 +8,18 @@ import gameEngine.Moveable;
 import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 
+/*
+ * @author Clark Howard
+ * @author Ryan Grundmeier
+ * 
+ * Implements the move and interaction methods for the PoisonFrog piece. 
+ */
 public class PoisonFrog extends GamePiece implements Moveable {
-
-	private Drawable gamePieceOnTopOf = null;
+	
+	/**
+	 * Default Constructor
+	 * @param location the starting location of the PoisonFrog on the board
+	 */
 	public PoisonFrog(int location) {
 		super('F', "PoisonFrog (can damage you)", location);
 		
@@ -48,10 +57,8 @@ public class PoisonFrog extends GamePiece implements Moveable {
 
 		// This gets called when the player is to the right. 
 		//Update the game board with our new position. 
-		Drawable tempSpace = gamePieceOnTopOf;
-		gamePieceOnTopOf = gameBoard[this.getLocation()];
 		gameBoard[this.getLocation()] = this;
-		gameBoard[previousLocation] = tempSpace;
+		gameBoard[previousLocation] = null;
 	}
 	@Override
 	public String toString() {

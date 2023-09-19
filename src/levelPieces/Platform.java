@@ -3,11 +3,20 @@ package levelPieces;
 import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 
+/*
+ * @author Clark Howard
+ * @author Ryan Grundmeier
+ * 
+ * Implements the move and interaction methods for the Platform piece. 
+ */
 public class Platform extends GamePiece implements Drawable {
-	private int location;
+	
+	/**
+	 * Default Constructor
+	 * @param location the starting location of the Platform on the board
+	 */
 	public Platform(int location) {
 		super('_', "Platform (Can stand on)", location);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
@@ -16,10 +25,11 @@ public class Platform extends GamePiece implements Drawable {
 		return super.toString();
 	}
 
+	/**
+	 * Does nothing, just allows the player to stand on it
+	 */
 	@Override
 	public InteractionResult interact(Drawable[] gameBoard, int playerLocation) {
-		// TODO Auto-generated method stub
-		//gameBoard[this.getLocation()] = this;
 		return InteractionResult.NONE;
 	}
 }

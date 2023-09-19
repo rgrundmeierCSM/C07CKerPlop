@@ -41,6 +41,7 @@ public class GameEngine {
 	private ArrayList<GamePiece> interactingPieces;
 	// Player keeps track of player status and controls player movement/location
 	private Player player;
+	// Decides to skip a move by the game pieces
 	private static boolean skipMove;
 
 	/**
@@ -145,6 +146,9 @@ public class GameEngine {
 		print_legend();
 	}
 
+	/**
+	 * Prints the legend for the current level
+	 */
 	private void print_legend() {
 		System.out.println(gameBoard.length);
 		for(int i = 0; i < gameBoard.length; i++)
