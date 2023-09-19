@@ -78,6 +78,9 @@ public class LevelSetup {
 					case 17:
 						board[i] = new GoldenSnitch(i);
 						break;
+					case 15:
+						board[i] = new Treasure(i);
+						break;
 					case 14:
 						board[i] = new Platform(i);
 						break;

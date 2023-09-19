@@ -1,0 +1,35 @@
+Game Piece Descriptions: 
+	Platform
+		-Not Interactable
+		-Not Moveable
+	Assasin
+		-Interaction: KILL
+		-Moves linearly towards the player
+		-KILLS the player when player lands within 1 space of Assasin
+		-Assassin is removed when player lands on Assasin
+	GoldenSnitch
+		-Interaction: ADVANCE
+		-Moves randomly around the board
+		-If the player manages to land on, player advances
+	Guard
+		-Interaction: KILL
+		-Interacts with the player if within 1 space of the player. 
+		-Moves in a pattern around the Treasure
+	Mysterious Clock
+		-Interaction: Special
+		-When the player lands on it, reverts the board(except for the player) to the 
+		-Does not move
+	PoisonFrog
+		-Interaction: HIT
+		-When the player lands on it, the frog does a damage
+		-The frog jumps 2 spaces towards the player. 
+	Treasure
+		-Interaction: GET_A_POINT
+		-When the player lands on it, player gets a point
+		-Does not move
+
+Piece for Interaction Result: 
+	Kill - Assasin, Guard
+	HIT - PoisonFrog
+	ADVANCE - GoldenSnitch
+	GET_A_POINT - Treasure

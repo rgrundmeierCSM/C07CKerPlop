@@ -36,9 +36,12 @@ public class Assassin extends GamePiece implements Moveable, Drawable
 
 	@Override
 	public InteractionResult interact(Drawable[] gameBoard, int playerLocation) {
-		if(Math.abs(this.getLocation() - playerLocation)<=1)
+		if(Math.abs(this.getLocation() - playerLocation) ==1)
 		{
 			return InteractionResult.KILL;
+		}
+		else if (this.getLocation() == playerLocation) {
+			gameBoard[this.getLocation()] = null;
 		}
 		return InteractionResult.NONE;
 	}
