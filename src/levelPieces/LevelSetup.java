@@ -49,9 +49,6 @@ public class LevelSetup {
 					case 14:
 						board[i] = new Platform(i);
 						break;
-					case 15:
-						board[i] = new Treasure(i);
-						break;
 					case 11:
 						board[i] = new MysteriousClock(i,board);
 						break;
@@ -60,6 +57,9 @@ public class LevelSetup {
 						break;
 					case 6:
 						board[i] = new Treasure(i);
+						break;
+					case 0: 
+						board[i] = new Prize(i);
 						break;
 					default:
 						board[i] = null;
@@ -78,9 +78,6 @@ public class LevelSetup {
 					case 17:
 						board[i] = new GoldenSnitch(i);
 						break;
-					case 15:
-						board[i] = new Treasure(i);
-						break;
 					case 14:
 						board[i] = new Platform(i);
 						break;
@@ -95,6 +92,9 @@ public class LevelSetup {
 						break;
 					case 7:
 						board[i] = new Guard(i);
+						break;
+					case 0: 
+						board[i] = new Prize(i);
 						break;
 					default:
 						board[i] = null;
@@ -172,18 +172,9 @@ public class LevelSetup {
 		return PLAYER_START_LOCATION;
 
 	}
-	public static void main(String[] args) {
-		
-		
-		
-		
-		
-		
-		
-	}
 	
 	
-	}
+}
 
 
 

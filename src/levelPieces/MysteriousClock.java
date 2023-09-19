@@ -28,7 +28,7 @@ public class MysteriousClock extends GamePiece implements Drawable{
 			setBoardLocations(board);
 			GameEngine.setSkipTurn(true);
 			board[this.getLocation()] = null;
-			this.setLocation(GameEngine.BOARD_SIZE - this.getLocation());
+			this.setLocation(this.getLocation()<GameEngine.BOARD_SIZE/2 ? GameEngine.BOARD_SIZE-1 : 0);
 			this.setLocation(this.getValidSpace(this.getLocation(), this.getLocation()<GameEngine.BOARD_SIZE/2, gameBoard, playerLocation));
 			board[this.getLocation()] = this;
 		}

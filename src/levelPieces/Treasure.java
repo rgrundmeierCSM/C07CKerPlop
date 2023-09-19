@@ -6,7 +6,7 @@ import gameEngine.InteractionResult;
 public class Treasure extends GamePiece implements Drawable {
 
 	public Treasure(int location) {
-		super('T', "Treasure (what we are after)", location);
+		super('T', "Treasure (gives points)", location);
 		
 	}
 
