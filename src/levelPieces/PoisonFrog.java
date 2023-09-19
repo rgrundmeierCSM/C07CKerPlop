@@ -8,7 +8,7 @@ import gameEngine.Moveable;
 import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 
-public class PoisonFrog extends GamePiece implements Moveable, Drawable {
+public class PoisonFrog extends GamePiece implements Moveable {
 
 	private Drawable gamePieceOnTopOf = null;
 	public PoisonFrog(int location) {

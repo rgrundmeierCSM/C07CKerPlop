@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public class LevelSetup {
 
 	
-	static ArrayList<GamePiece> interactingPiecesList; // contains all of the pieces with player interactions. 
+	 
 	
 
 
 	protected Drawable[] board;
-	private final int BOARD_SIZE = 21;
-	private final int PLAYER_START_LOCATION = 20;
+	static private final int BOARD_SIZE = 21;
+	static private final int PLAYER_START_LOCATION = 20;
 
 	
 	public LevelSetup() {

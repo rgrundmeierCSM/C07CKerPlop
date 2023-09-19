@@ -11,7 +11,7 @@ import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 import gameEngine.Moveable;
 
-public class Assassin extends GamePiece implements Moveable, Drawable
+public class Assassin extends GamePiece implements Moveable
 {
 	private Drawable gamePieceOnTopOf = null;
 	public Assassin(int location) {

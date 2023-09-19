@@ -5,7 +5,7 @@ import gameEngine.GameEngine;
 import gameEngine.InteractionResult;
 import gameEngine.Moveable;
 
-public class GoldenSnitch extends GamePiece implements Moveable, Drawable
+public class GoldenSnitch extends GamePiece implements Moveable
 {
 	private final double LUCK_FACTOR = 0.1;
 	public GoldenSnitch(int location) {

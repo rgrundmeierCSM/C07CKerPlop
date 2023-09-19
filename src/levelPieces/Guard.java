@@ -5,7 +5,7 @@ import gameEngine.GameEngine;
 import gameEngine.InteractionResult;
 import gameEngine.Moveable;
 
-public class Guard extends GamePiece implements Moveable, Drawable
+public class Guard extends GamePiece implements Moveable
 {
 	public Guard(int location) {
 		super('G', "Guard (can kill you)", location);
