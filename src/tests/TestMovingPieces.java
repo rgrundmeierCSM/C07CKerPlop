@@ -19,7 +19,6 @@ public class TestMovingPieces {
 	
 	
 	@Test
-	
 	public void testAssassin() {
 		
 		Moveable [] board = new Moveable[GameEngine.BOARD_SIZE];

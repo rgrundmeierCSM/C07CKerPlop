@@ -11,6 +11,12 @@ import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 import gameEngine.Moveable;
 
+/*
+ * @author Clark Howard
+ * @author Ryan Grundmeier
+ * 
+ * Implements the move and interaction methods for the Assassin piece. 
+ */
 public class Assassin extends GamePiece implements Moveable
 {	
 	/**

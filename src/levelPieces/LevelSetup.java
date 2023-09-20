@@ -1,7 +1,9 @@
 /**
  * Class LevelSetup
  * @author Ryan Grundmeier
+ * @author Clark Howard
  * 
+ * Sets up the two levels of the game
  */
 package levelPieces;
 import gameEngine.Drawable;
